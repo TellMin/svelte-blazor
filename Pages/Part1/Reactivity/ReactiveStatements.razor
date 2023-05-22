@@ -1,0 +1,23 @@
+@page "/reactive-statements"
+@inject IJSRuntime JsRuntime
+
+<button @onclick="handleClick">
+    Clicked @count
+    @(count == 1 ? "time" : "times")
+</button>
+
+@code {
+    private int count = 0;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (count >= 10)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", "count is dangerously high!");
+            count = 0;
+        }
+    }
+    private void handleClick()
+    {
+        count += 1;
+    }
+}
