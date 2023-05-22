@@ -1,0 +1,17 @@
+@page "/reactive-declarations"
+
+<button @onclick="increment">
+    Clicked @count
+    @((count == 1) ? "time" : "times")
+</button>
+
+<p>@count doubled is @doubled</p>
+
+@code {
+    private int count = 0;
+    private int doubled => count * 2;
+    private void increment()
+    {
+        count += 1;
+    }
+}
