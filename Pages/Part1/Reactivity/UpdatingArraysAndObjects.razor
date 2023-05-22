@@ -1,0 +1,16 @@
+@page "/updating-arrays-and-objects"
+
+<p>@(string.Join(" + ", numbers)) = @sum</p>
+
+<button @onclick="addNumber">
+    Add a number
+</button>
+
+@code {
+    private int[] numbers = { 1, 2, 3, 4 };
+    private void addNumber()
+    {
+        numbers = numbers.Concat(new[] { numbers.Length + 1 }).ToArray();
+    }
+    private int sum => numbers.Sum();
+}
