@@ -1,0 +1,14 @@
+@page "/reactive-assignments"
+
+<button @onclick="increment">
+    Clicked @count
+    @((count == 1) ? "time" : "times")
+</button>
+
+@code {
+    private int count = 0;
+    private void increment()
+    {
+        count += 1;
+    }
+}
