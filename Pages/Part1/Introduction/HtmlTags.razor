@@ -1,0 +1,7 @@
+@page "/html-tags"
+
+<p>@((MarkupString)@string)</p>
+
+@code {
+    private string @string = "this string contains some <strong>HTML!!!</strong>";
+}
