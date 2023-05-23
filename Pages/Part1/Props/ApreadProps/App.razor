@@ -1,0 +1,13 @@
+@page "/spread-props"
+
+<PackageInfo Pkg=@pkg />
+
+@code {
+    private Pkg pkg = new()
+        {
+            Name = "svelte",
+            Speed = "blazing",
+            Version = 3,
+            Website = "https://svelte.dev"
+        };
+}

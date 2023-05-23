@@ -1,0 +1,14 @@
+<p>
+    The <code> @name </code> package is @speed fast. Download version @version from
+    <a href=@href>npm</a> and <a href=@website>learn more here</a>
+</p>
+
+@code {
+    [Parameter]
+    public Pkg? Pkg { get; set; }
+    public string? name => Pkg?.Name;
+    public int version => Pkg?.Version ?? 0;
+    public string? speed => Pkg?.Speed;
+    public string? website => Pkg?.Website;
+    private string? href => $"https://www.npmjs.com/package/{name}";
+}
