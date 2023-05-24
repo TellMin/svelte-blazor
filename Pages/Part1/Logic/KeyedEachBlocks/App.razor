@@ -1,0 +1,38 @@
+@page "/keyed-each-blocks"
+
+<button @onclick="handleClick">
+    Remove first thing
+</button>
+
+@foreach (var thing in things)
+{
+    <Thing name=@thing.name />
+}
+
+@code {
+    private List<thing> things = new()
+{
+new thing(1,"apple"),
+new thing(2,"banana"),
+new thing(3,"carrot"),
+new thing(4,"doughnut"),
+new thing(5,"egg"),
+};
+    private void handleClick()
+    {
+        things = things.Skip(1).ToList();
+    }
+}
+
+@code {
+    private class thing
+    {
+        public thing(int id, string name)
+        {
+            this.id = id;
+            this.name = name;
+        }
+        public int id { get; set; }
+        public string name { get; set; }
+    }
+}

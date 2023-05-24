@@ -1,0 +1,15 @@
+<p>@name = @emoji</p>
+
+@code {
+    public static Dictionary<string, string> emojis = new Dictionary<string, string>()
+{
+{"apple","🍎"},
+{"banana", "🍌"},
+{"carrot", "🥕"},
+{"doughnut", "🍩"},
+{"egg", "🥚"}
+};
+    [Parameter]
+    public string? name { get; set; }
+    private string emoji => !string.IsNullOrEmpty(name) ? emojis[name] : "";
+}
