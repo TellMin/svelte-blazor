@@ -10,13 +10,13 @@
 }
 
 @code {
-    private List<thing> things = new()
+    private List<Thing> things = new()
 {
-new thing(1,"apple"),
-new thing(2,"banana"),
-new thing(3,"carrot"),
-new thing(4,"doughnut"),
-new thing(5,"egg"),
+new Thing(1,"apple"),
+new Thing(2,"banana"),
+new Thing(3,"carrot"),
+new Thing(4,"doughnut"),
+new Thing(5,"egg"),
 };
     private void handleClick()
     {
@@ -25,9 +25,9 @@ new thing(5,"egg"),
 }
 
 @code {
-    private class thing
+    private class Thing
     {
-        public thing(int id, string name)
+        public Thing(int id, string name)
         {
             this.id = id;
             this.name = name;
