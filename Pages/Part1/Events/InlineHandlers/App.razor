@@ -1,0 +1,22 @@
+@page "/inline-handlers"
+
+<div
+	@onpointermove=@((e) => m = (e.ClientX, e.ClientY))
+>
+	The pointer is at @m.x x @m.y
+</div>
+
+<style>
+	div {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		padding: 1rem;
+	}
+</style>
+
+@code {
+    private (double x, double y) m {get;set;}
+}
