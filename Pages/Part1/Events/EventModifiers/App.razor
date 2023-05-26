@@ -1,0 +1,19 @@
+@page "/event-modifiers"
+@inject IJSRuntime JsRuntime
+
+<button @onclick=@handleClick>
+    Click me
+</button>
+
+@code {
+    private bool clicked = false;
+    private async Task handleClick()
+    {
+        if(clicked)
+        {
+            return;
+        }
+        await JsRuntime.InvokeVoidAsync("alert", "clicked");
+        clicked = true;
+    }
+}
