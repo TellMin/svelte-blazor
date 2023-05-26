@@ -1,0 +1,42 @@
+@page "/await-blocks"
+
+    <button @onclick="handleClick">
+	    generate random number
+    </button>
+
+    @if(isLoading)
+    {
+        <p>...waiting</p>
+    }
+    else if(error == null && number != null)
+    {
+        <p>The number is @number</p>
+    }
+    else if(error != null)
+    {
+        <p style="color: red">@error</p>
+    }
+
+@code {
+    private Func<Task<int>> promise {get;set;} = () => Utils.getRandomNumber();
+    private bool isLoading {get;set;}
+    private int? number {get;set;}
+    private string? error {get;set;}
+    private async Task handleClick()
+    {
+        isLoading = true;
+        try
+        {
+            number = await promise();
+            error = null;
+        }
+        catch(Exception e)
+        {
+            error = e.Message;
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}
