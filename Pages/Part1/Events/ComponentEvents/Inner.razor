@@ -1,0 +1,16 @@
+<button @onclick="sayHello">
+    Click to say hello
+</button>
+
+@code {
+    [Parameter]
+    public Action<string>? Message { get; set; }
+
+    private void sayHello()
+    {
+        if(Message != null)
+        {
+            Message.Invoke("Hello");
+        }
+    }
+}

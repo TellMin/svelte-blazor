@@ -1,0 +1,16 @@
+@page "/component-events"
+@inject IJSRuntime JsRuntime
+
+<Inner Message=@handleMessage/>
+
+@code{
+    private Action<string> handleMessage {get;set;} = new Action<string>((message) => {});
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        handleMessage = async (message) => await JsRuntime.InvokeVoidAsync("alert", message);
+    }
+}
+
+
